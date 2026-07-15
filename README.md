@@ -1,93 +1,52 @@
-# Reporting For Tools Test
+# Dr. Elephant
 
-This script generates sub report for tools as weShare page. 
+[![Build Status](https://api.travis-ci.org/linkedin/dr-elephant.svg)](https://travis-ci.org/linkedin/dr-elephant/)
+[![Join the chat at https://gitter.im/linkedin/dr-elephant](https://badges.gitter.im/linkedin/dr-elephant.svg)](https://gitter.im/linkedin/dr-elephant?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-## Installation 
+<a href=""><img src="images/wiki/dr-elephant-logo-150x150.png" align="left" hspace="10" vspace="6"></a>
 
-Use pipx to install the tools test report tool:
+**Dr. Elephant** is a performance monitoring and tuning tool for Hadoop and Spark. It automatically gathers all the metrics, runs analysis on them, and presents them in a simple way for easy consumption. Its goal is to improve developer productivity and increase cluster efficiency by making it easier to tune the jobs. It analyzes the Hadoop and Spark jobs using a set of pluggable, configurable, rule-based heuristics that provide insights on how a job performed, and then uses the results to make suggestions about how to tune the job to make it perform more efficiently.
 
-```
-pipx install git+ssh://git@socgit.advantest.com:7999/test_tool/tools-test-report.git
-```
+## Documentation
 
-Make sure `$HOME/.local/bin` is in your `$PATH`. If you don't have pipx yet,
-install it using `/opt/rh/rh-python38/root/usr/bin/python3.8 -m pip install --upgrade --user pipx`. **Do not** install the tools test report tool using pip directly.
+For more information on Dr. Elephant, check the wiki pages [here](https://github.com/linkedin/dr-elephant/wiki).
 
-Use `pipx upgrade test-report` to upgrade to the latest version. 
+For quick setup instructions: [Click here](https://github.com/linkedin/dr-elephant/wiki/Quick-Setup-Instructions)
 
-## Usage
+Developer guide: [Click here](https://github.com/linkedin/dr-elephant/wiki/Developer-Guide)
 
-```
-test-report --environment=prod
-```
+Administrator guide: [Click here](https://github.com/linkedin/dr-elephant/wiki/Administrator-Guide)
 
-Or run it with -h to see all options.
+User guide: [Click here](https://github.com/linkedin/dr-elephant/wiki/User-Guide)
 
-## Development
+Engineering Blog: [Click here](https://engineering.linkedin.com/blog/2016/04/dr-elephant-open-source-self-serve-performance-tuning-hadoop-spark)
 
-Clone the repository and install the needed libraries with Poetry (>=Python3.8)
+## Mailing-list & Github Issues
 
+Google groups mailing list: [Click here](https://groups.google.com/forum/#!forum/dr-elephant-users)
 
-```
-git clone ssh://git@socgit.advantest.com:7999/test_tool/tools-test-report.git
-cd tools-test-report
-# add virtual environment and activate
-python -m venv .venv
-source .venv/bin/activate
-pip install -r requirements_global.txt
-pip install -r requirements.txt
-```
+Github issues: [click here](https://github.com/linkedin/dr-elephant/issues)
 
-Compile an executable with Pex (will be stored in the project folder)
-```
-./build-pex
-```
-## Environment Variables
+## Meetings
 
-More configurations that can be done in the ".env_xxx" file ("xxx" is either "prod","test","dev" or "cm"):
- * PAGE_PREFIX = "Oli "
-   * add this prefix to the title of the generated report page (if multiple developers work in parallel on tasks and have to generate a report for their own)
-   * if this variable if missing, no prefix is used (default)
- * ErrorEmailNotification="1"
-   * enable the mail notification (see next points)
- * SENDER_EMAIL = "oliver.schuetze@advantest.com"
-   * this mail address will be used as "sender" for all notification mails sent during the report generation
- * DEVELOPER_EMAILS = '["ramesh.reddy@ptn.advantest.com","oliver.schuetze@advantest.com"]'
-   * list of mail addresses (of developers) who will be informed by mail in case of a script error during the report generation
- * level="info"
-   * level of log messages
- * logToFile="0"
-   * store log files
- * weShareSpace="SIEMADV"
-   * used weShare space for report
- * pageID="269298894"
-   * used parent page for report
- * test="1"
-   * if 1, then use weShareTEST and jira-TEST instead of weShare and weTrack
- * release="current"
-   * if "current", all currently active STCs are processed - otherwise define a single release, e.g. "8.6.3.0"
- * BA_DB_NAME="buildanalyzer"
- * BA_DB_USERNAME="..."
- * BA_DB_PASS="..."
- * BA_DB_PORT="..."
- * BA_DB_HOST="..."
- * DEPLOYMENT_BUILD_ID="0"
-   * updated by CI/CD pipeline - can be used to print the build ID in the weShare report
- * DEPLOYMENT_IMAGE_TAG="00-xxx"
-   * updated by CI/CD pipeline - can be used to print the image tag in the weShare report
+We have scheduled a weekly Dr. Elephant meeting for the interested developers and users to discuss future plans for Dr. Elephant. Please [click here](https://github.com/linkedin/dr-elephant/issues/209) for details.
 
-The authentification can be done in different variants:
- * USERNAME="..."
- * if you use API access token (this can be generated in the personal settings of weShare or weTrack):
-   * WESHARE_TOKEN="..."
-   * WETRACK_TOKEN="..."
-   * (these token are not added to the secret until JIRA-10166 is resolved)
- * if  you use a pre-build token for basic authentification
-   * WESHARE_AUTHENTIFICATION_TOKEN="..."
-   * WETRACK_AUTHENTIFICATION_TOKEN="..."
-   * the token can be generated using the shell command echo -n 'your_username:your_password' | base64
- * if you use username and tool-specific password
-   * WESHARE_PASSWORD="..."
-   * WETRACK_PASSWORD="..."
- * if you use username and password that fits to weShare and weTrack
-   * PASSWORD="..."
+## How to Contribute?
+
+Check this [link](https://github.com/linkedin/dr-elephant/wiki/How-to-Contribute%3F).
+
+## License
+
+    Copyright 2016 LinkedIn Corp.
+
+    Licensed under the Apache License, Version 2.0 (the "License"); you may not
+    use this file except in compliance with the License. You may obtain a copy of
+    the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+    License for the specific language governing permissions and limitations under
+    the License.
