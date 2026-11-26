@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sample HTML Page</title>
+</head>
+<body>
+    <h1>Welcome to Appfire</h1>
+    <h2>HTML Macro Testing</h2>
+
+    <p>This is a sample HTML page used for testing.</p>
+
+    <h3>Features</h3>
+    <ul>
+        <li>HTML Rendering</li>
+        <li>Table Formatting</li>
+        <li>Links and Images</li>
+        <li>CSS Styling</li>
+    </ul>
+
+    <p>Visit
+        <a href="https://www.appfire.com">
+            Appfire Website
+        </a>
+    </p>
+</body>
+</html>
